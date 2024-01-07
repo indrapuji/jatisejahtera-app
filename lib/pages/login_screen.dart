@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/components/back_header.dart';
 import 'package:jatisejahtera/components/input_text_field.dart';
 import 'package:jatisejahtera/components/static_button.dart';
@@ -44,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                           isObscureText: true,
                           suffixIcon: Icon(
                             Icons.visibility_off,
-                            color: Color.fromARGB(255, 5, 150, 106),
+                            color: primaryColor,
                           ),
                         ),
                       ),
@@ -61,8 +62,7 @@ class LoginScreen extends StatelessWidget {
                                 left: 32, top: 8, bottom: 32),
                             child: const Text(
                               'Lupa Password',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 5, 150, 106)),
+                              style: TextStyle(color: primaryColor),
                             )),
                       )
                     ],
@@ -76,8 +76,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         StaticButton(
                           text: "Log In",
-                          backgroundColor:
-                              const Color.fromARGB(255, 5, 150, 106),
+                          backgroundColor: primaryColor,
                           colorText: Colors.white,
                           onTap: () {
                             Navigator.push(context,
@@ -104,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 5, 150, 106)),
+                                    color: primaryColor),
                               ),
                             ),
                           ],

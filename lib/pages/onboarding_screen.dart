@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/pages/welcome_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -65,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 5, 150, 106)),
+                            color: primaryColor),
                       ),
                       const SizedBox(height: 12),
                       Text(
@@ -74,7 +75,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 5, 150, 106),
+                          color: primaryColor,
                         ),
                       ),
                     ],
@@ -103,8 +104,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   controller: _controller,
                   count: 4,
                   effect: const ExpandingDotsEffect(
-                    dotColor: Color.fromARGB(255, 8, 210, 149),
-                    activeDotColor: Color.fromARGB(255, 5, 150, 106),
+                    dotColor: secondaryColor,
+                    activeDotColor: primaryColor,
                   ),
                   onDotClicked: (index) => _controller.animateToPage(
                     index,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/config/colors.dart';
 
 class InputTextField extends StatelessWidget {
   final String? labelText;
@@ -34,8 +35,7 @@ class InputTextField extends StatelessWidget {
                 borderSide: const BorderSide(color: Colors.grey, width: 1)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
-                borderSide: const BorderSide(
-                    color: Color.fromARGB(255, 5, 150, 106), width: 1)),
+                borderSide: const BorderSide(color: primaryColor, width: 1)),
             hintText: hintText,
             suffixIcon: suffixIcon),
       ),

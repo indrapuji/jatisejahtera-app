@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/components/animate_button.dart';
 import 'package:jatisejahtera/components/input_text_field.dart';
 import 'package:jatisejahtera/components/static_button.dart';
@@ -43,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                         StaticButton(
                           text: "Explore",
                           backgroundColor: Colors.white,
-                          colorText: const Color.fromARGB(255, 5, 150, 106),
+                          colorText: primaryColor,
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
@@ -54,8 +55,7 @@ class WelcomeScreen extends StatelessWidget {
                         const SizedBox(height: 12),
                         AnimateButton(
                           text: "Langsung Daftar",
-                          backgroundColor:
-                              const Color.fromARGB(255, 5, 150, 106),
+                          backgroundColor: primaryColor,
                           colorText: Colors.white,
                           onTap: () {
                             showModalBottomSheet(
@@ -100,8 +100,7 @@ class WelcomeScreen extends StatelessWidget {
                                           left: 16,
                                           right: 16),
                                       child: StaticButton(
-                                        backgroundColor: const Color.fromARGB(
-                                            255, 5, 150, 106),
+                                        backgroundColor: primaryColor,
                                         text: 'Cek',
                                         colorText: Colors.white,
                                         onTap: () {
@@ -137,7 +136,7 @@ class WelcomeScreen extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 5, 150, 106)),
+                                    color: primaryColor),
                               ),
                             ),
                           ],

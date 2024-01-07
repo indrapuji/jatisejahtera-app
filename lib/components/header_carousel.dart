@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/config/colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class HeaderCarousel extends StatefulWidget {
@@ -67,8 +68,8 @@ class _HeaderCarouselState extends State<HeaderCarousel> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: currentIndex == entry.key
-                              ? const Color.fromARGB(255, 5, 150, 106)
-                              : const Color.fromARGB(255, 8, 210, 149)),
+                              ? primaryColor
+                              : secondaryColor),
                     ),
                   );
                 }).toList(),

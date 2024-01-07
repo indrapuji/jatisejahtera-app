@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/components/back_header.dart';
 import 'package:jatisejahtera/components/dropdown_text_field.dart';
 import 'package:jatisejahtera/components/input_text_field.dart';
@@ -37,7 +38,7 @@ class SignupScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 21,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 5, 150, 106)),
+                          color: primaryColor),
                     ),
                   ),
                   const Padding(
@@ -71,7 +72,7 @@ class SignupScreen extends StatelessWidget {
                       isObscureText: true,
                       suffixIcon: Icon(
                         Icons.visibility_off,
-                        color: Color.fromARGB(255, 5, 150, 106),
+                        color: primaryColor,
                       ),
                     ),
                   ),
@@ -80,7 +81,7 @@ class SignupScreen extends StatelessWidget {
                         const EdgeInsets.only(left: 16, right: 16, top: 32),
                     child: StaticButton(
                         text: 'Daftar',
-                        backgroundColor: const Color.fromARGB(255, 5, 150, 106),
+                        backgroundColor: primaryColor,
                         colorText: Colors.white,
                         onTap: () {
                           Navigator.push(context,
@@ -113,7 +114,7 @@ class SignupScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 5, 150, 106)),
+                          color: primaryColor),
                     ),
                   ),
                 ],

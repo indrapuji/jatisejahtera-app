@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/components/static_button.dart';
 import 'package:jatisejahtera/pages/home_screen.dart';
 
@@ -56,7 +57,7 @@ class SuccessScreen extends StatelessWidget {
                                   style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 5, 150, 106)),
+                                      color: primaryColor),
                                 ),
                                 const SizedBox(height: 13),
                                 Padding(
@@ -67,7 +68,7 @@ class SuccessScreen extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
                                       fontSize: 13,
-                                      color: Color.fromARGB(255, 5, 150, 106),
+                                      color: primaryColor,
                                     ),
                                   ),
                                 ),
@@ -84,7 +85,7 @@ class SuccessScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 32),
                     child: StaticButton(
                         text: 'Selesai',
-                        backgroundColor: const Color.fromARGB(255, 5, 150, 106),
+                        backgroundColor: primaryColor,
                         colorText: Colors.white,
                         onTap: () {
                           Navigator.push(context,
