@@ -66,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: primaryColor),
+                            color: Color.fromARGB(255, 5, 150, 106)),
                       ),
                       const SizedBox(height: 12),
                       Text(
@@ -75,7 +75,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
-                          color: primaryColor,
+                          color: Color.fromARGB(255, 5, 150, 106),
                         ),
                       ),
                     ],
@@ -122,7 +122,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           }));
                         },
                         child: const Text(
-                          'Mulai',
+                          'Done',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ))
                     : GestureDetector(
