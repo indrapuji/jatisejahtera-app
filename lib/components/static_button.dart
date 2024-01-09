@@ -6,12 +6,13 @@ class StaticButton extends StatelessWidget {
   final Color colorText;
   final void Function()? onTap;
 
-  const StaticButton(
-      {super.key,
-      required this.text,
-      required this.backgroundColor,
-      required this.colorText,
-      required this.onTap});
+  const StaticButton({
+    super.key,
+    required this.text,
+    required this.backgroundColor,
+    required this.colorText,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
