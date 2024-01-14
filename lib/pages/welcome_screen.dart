@@ -3,9 +3,12 @@ import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/components/animate_button.dart';
 import 'package:jatisejahtera/components/input_text_field.dart';
 import 'package:jatisejahtera/components/static_button.dart';
+// import 'package:jatisejahtera/pages/content_screen.dart';
+// import 'package:jatisejahtera/pages/content_tab_screen.dart';
 import 'package:jatisejahtera/pages/home_screen.dart';
 import 'package:jatisejahtera/pages/login_screen.dart';
 import 'package:jatisejahtera/pages/signup_screen.dart';
+// import 'package:jatisejahtera/pages/test_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -48,7 +51,10 @@ class WelcomeScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const HomeScreen();
+                              return HomeScreen();
+                              // return ContentScreen();
+                              // return ContentTabScreen();
+                              // return const TestScreen();
                             }));
                           },
                         ),

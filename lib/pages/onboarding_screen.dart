@@ -96,9 +96,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     onTap: () {
                       _controller.jumpToPage(3);
                     },
-                    child: const Text(
+                    child: Text(
                       'Skip',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: onLastPage ? Colors.white : Colors.black),
                     )),
                 SmoothPageIndicator(
                   controller: _controller,
@@ -113,28 +115,45 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     curve: Curves.easeIn,
                   ),
                 ),
-                onLastPage
-                    ? GestureDetector(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const WelcomeScreen();
-                          }));
-                        },
-                        child: const Text(
-                          'Done',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ))
-                    : GestureDetector(
-                        onTap: () {
-                          _controller.nextPage(
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.easeIn);
-                        },
-                        child: const Text(
-                          'Next',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )),
+                GestureDetector(
+                    onTap: onLastPage
+                        ? () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const WelcomeScreen();
+                            }));
+                          }
+                        : () {
+                            _controller.nextPage(
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeIn);
+                          },
+                    child: const Text(
+                      'Next',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
+                // onLastPage
+                //     ? GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(context,
+                //               MaterialPageRoute(builder: (context) {
+                //             return const WelcomeScreen();
+                //           }));
+                //         },
+                //         child: const Text(
+                //           'Done',
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ))
+                //     : GestureDetector(
+                //         onTap: () {
+                //           _controller.nextPage(
+                //               duration: const Duration(milliseconds: 500),
+                //               curve: Curves.easeIn);
+                //         },
+                //         child: const Text(
+                //           'Next',
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         )),
               ],
             ))
       ],

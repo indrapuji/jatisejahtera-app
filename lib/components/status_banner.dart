@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:jatisejahtera/components/static_button.dart';
-import 'package:jatisejahtera/config/colors.dart';
 
 class StatusBanner extends StatelessWidget {
   final Color backgroundColor;
   final Color buttonColor;
-  final Color buttonTextColor;
   final String descText;
   final String buttonText;
+  final Color buttonTextColor;
   final void Function()? onTap;
   const StatusBanner(
       {super.key,
@@ -21,7 +19,7 @@ class StatusBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 18),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
       height: 175,
       width: (MediaQuery.of(context).size.width),
       decoration: BoxDecoration(
@@ -47,13 +45,26 @@ class StatusBanner extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 150,
-            child: StaticButton(
-                text: buttonText,
-                backgroundColor: primaryColor,
-                colorText: Colors.white,
-                onTap: onTap),
-          )
+              height: 50,
+              width: 150,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: buttonColor,
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                        color: buttonColor == Colors.white
+                            ? buttonColor
+                            : buttonColor,
+                        width: 1)),
+                child: Center(
+                    child: Text(
+                  buttonText,
+                  style: TextStyle(
+                      color: buttonTextColor,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                )),
+              )),
         ],
       ),
     );

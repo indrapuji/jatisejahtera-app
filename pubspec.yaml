@@ -39,6 +39,7 @@ dependencies:
   dropdown_button2: ^2.3.9
   carousel_slider: ^4.2.1
   another_carousel_pro: ^1.0.0
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:
