@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jatisejahtera/components/berita_items.dart';
+// import 'package:jatisejahtera/components/galeri_items.dart';
 import 'package:jatisejahtera/components/header_carousel.dart';
 import 'package:jatisejahtera/components/icon_program.dart';
 import 'package:jatisejahtera/components/claims.dart';
@@ -14,6 +15,33 @@ import 'package:jatisejahtera/pages/sosial_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
+
+  final List<Map<String, dynamic>> _programList = [
+    {
+      'imageIcon': 'assets/icon/pendidikan.png',
+      'colorIcon': const Color.fromARGB(255, 244, 68, 54),
+      'textIcon': "Pendidikan",
+      'navTo': PendidikanScreen()
+    },
+    {
+      'imageIcon': 'assets/icon/sosial.png',
+      'colorIcon': const Color.fromARGB(255, 123, 48, 162),
+      'textIcon': "Sosial",
+      'navTo': SosialScreen()
+    },
+    {
+      'imageIcon': 'assets/icon/perumahan.png',
+      'colorIcon': const Color.fromARGB(255, 16, 165, 233),
+      'textIcon': "Perumahan",
+      'navTo': const PerumahanScreen()
+    },
+    {
+      'imageIcon': 'assets/icon/kesehatan.png',
+      'colorIcon': const Color.fromARGB(255, 102, 187, 107),
+      'textIcon': "Kesehatan",
+      'navTo': KesehatanScreen()
+    },
+  ];
 
   final List<Map<String, dynamic>> _beritaList = [
     {
@@ -43,12 +71,9 @@ class HomeScreen extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           body: CustomScrollView(
+            physics: const ClampingScrollPhysics(),
             slivers: <Widget>[
               SliverAppBar(
-                // backgroundColor: Colors.white,
-                // floating: true,
-                // snap: true,
-                // pinned: true,
                 expandedHeight: 140,
                 flexibleSpace: const FlexibleSpaceBar(
                   background: HeaderCarousel(),
@@ -71,50 +96,19 @@ class HomeScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          IconProgram(
-                            imageIcon: 'assets/icon/pendidikan.png',
-                            colorIcon: const Color.fromARGB(255, 244, 68, 54),
-                            textIcon: "Pendidikan",
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return PendidikanScreen();
-                              }));
-                            },
-                          ),
-                          IconProgram(
-                            imageIcon: 'assets/icon/sosial.png',
-                            colorIcon: const Color.fromARGB(255, 123, 48, 162),
-                            textIcon: 'Sosial',
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return SosialScreen();
-                              }));
-                            },
-                          ),
-                          IconProgram(
-                            imageIcon: 'assets/icon/perumahan.png',
-                            colorIcon: const Color.fromARGB(255, 16, 165, 233),
-                            textIcon: 'Perumahan',
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const PerumahanScreen();
-                              }));
-                            },
-                          ),
-                          IconProgram(
-                            imageIcon: 'assets/icon/kesehatan.png',
-                            colorIcon: const Color.fromARGB(255, 102, 187, 107),
-                            textIcon: 'Kesehatan',
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return KesehatanScreen();
-                              }));
-                            },
-                          ),
+                          ...List.generate(_programList.length, (index) {
+                            return IconProgram(
+                              imageIcon: _programList[index]['imageIcon'],
+                              colorIcon: _programList[index]['colorIcon'],
+                              textIcon: _programList[index]['textIcon'],
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return _programList[index]['navTo'];
+                                }));
+                              },
+                            );
+                          }),
                         ],
                       ),
                     ),
@@ -147,22 +141,19 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Column(
-                          children: [
-                            SizedBox(
-                                height: 170,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: 4,
-                                    itemBuilder: (context, index) {
-                                      return BeritaItems(
-                                          imagesContent: _beritaList[index]
-                                              ['images'],
-                                          titleText: _beritaList[index]
-                                              ['title']);
-                                    })),
-                          ],
-                        ),
+                        SizedBox(
+                            height: 185,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 4,
+                                itemBuilder: (context, index) {
+                                  return BeritaItems(
+                                    imagesContent: _beritaList[index]['images'],
+                                    titleText: _beritaList[index]['title'],
+                                    itemIndex: index,
+                                    itemLength: 4,
+                                  );
+                                })),
                       ],
                     ),
                     const Divider(
@@ -175,9 +166,63 @@ class HomeScreen extends StatelessWidget {
                       color: thirdColor,
                     ),
                     Realisasi(),
-                    Container(
-                      color: Colors.red,
-                      height: 400,
+                    Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(
+                              top: 8, left: 16, right: 16),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Galeri',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 18)),
+                              Text(
+                                'Lihat semua',
+                                style: TextStyle(
+                                    color: primaryColor,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Card(
+                              clipBehavior: Clip.hardEdge,
+                              elevation: 4,
+                              shadowColor: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: const BorderSide(
+                                      color: Colors.grey,
+                                      width: 1,
+                                      style: BorderStyle.solid)),
+                              child: SizedBox(
+                                width: 155,
+                                height: 155,
+                                child: Image.asset(
+                                  'assets/image/galeri_1.jpeg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                width: 155,
+                                child: Text(
+                                  'Pemberian Bantuan Pendidikan kepada 179 siswa putra...',
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ],
                 ),

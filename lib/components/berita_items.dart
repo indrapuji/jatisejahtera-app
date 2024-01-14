@@ -3,13 +3,23 @@ import 'package:flutter/material.dart';
 class BeritaItems extends StatelessWidget {
   final String imagesContent;
   final String titleText;
+  final int itemIndex;
+  final int itemLength;
   const BeritaItems(
-      {super.key, required this.imagesContent, required this.titleText});
+      {super.key,
+      required this.imagesContent,
+      required this.titleText,
+      required this.itemIndex,
+      required this.itemLength});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(4),
+      margin: EdgeInsets.only(
+          left: itemIndex == 0 ? 12 : 8,
+          top: 8,
+          bottom: 16,
+          right: itemLength == (itemIndex + 1) ? 12 : 0),
       child: Card(
         clipBehavior: Clip.hardEdge,
         elevation: 4,
