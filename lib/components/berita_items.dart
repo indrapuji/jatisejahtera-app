@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class BeritaItems extends StatelessWidget {
   final String imagesContent;
-  final String titleText;
+  final String titleContent;
   final int itemIndex;
   final int itemLength;
   const BeritaItems(
       {super.key,
       required this.imagesContent,
-      required this.titleText,
+      required this.titleContent,
       required this.itemIndex,
       required this.itemLength});
 
@@ -45,7 +45,7 @@ class BeritaItems extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Text(
-                  titleText,
+                  titleContent,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: const TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jatisejahtera/components/berita_items.dart';
+import 'package:jatisejahtera/components/galeri_items.dart';
 // import 'package:jatisejahtera/components/galeri_items.dart';
 import 'package:jatisejahtera/components/header_carousel.dart';
 import 'package:jatisejahtera/components/icon_program.dart';
@@ -62,6 +63,24 @@ class HomeScreen extends StatelessWidget {
     {
       'images': 'assets/image/berita_4.jpeg',
       'title': 'Malam Keakraban Kangen Perhutani 2'
+    },
+  ];
+  final List<Map<String, dynamic>> _galeriList = [
+    {
+      'images': 'assets/image/galeri_1.jpeg',
+      'title': 'Pemberian Bantuan Pendidikan '
+    },
+    {
+      'images': 'assets/image/galeri_2.jpeg',
+      'title': 'Penyerahan Bantuan Pendidikan'
+    },
+    {
+      'images': 'assets/image/galeri_3.jpeg',
+      'title': 'Penyerahan Bantuan Pendidikan di Jawa Tengah'
+    },
+    {
+      'images': 'assets/image/galeri_4.jpeg',
+      'title': 'Penyerahan Bantuan Pendidikan'
     },
   ];
 
@@ -149,7 +168,7 @@ class HomeScreen extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   return BeritaItems(
                                     imagesContent: _beritaList[index]['images'],
-                                    titleText: _beritaList[index]['title'],
+                                    titleContent: _beritaList[index]['title'],
                                     itemIndex: index,
                                     itemLength: 4,
                                   );
@@ -187,41 +206,20 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Column(
-                          children: [
-                            Card(
-                              clipBehavior: Clip.hardEdge,
-                              elevation: 4,
-                              shadowColor: Colors.black,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: const BorderSide(
-                                      color: Colors.grey,
-                                      width: 1,
-                                      style: BorderStyle.solid)),
-                              child: SizedBox(
-                                width: 155,
-                                height: 155,
-                                child: Image.asset(
-                                  'assets/image/galeri_1.jpeg',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: SizedBox(
-                                width: 155,
-                                child: Text(
-                                  'Pemberian Bantuan Pendidikan kepada 179 siswa putra...',
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            )
-                          ],
-                        )
+                        SizedBox(
+                          height: 235,
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 4,
+                              itemBuilder: (context, index) {
+                                return GaleriItems(
+                                  imagesContent: _galeriList[index]['images'],
+                                  titleContent: _galeriList[index]['title'],
+                                  itemIndex: index,
+                                  itemLength: 4,
+                                );
+                              }),
+                        ),
                       ],
                     ),
                   ],
