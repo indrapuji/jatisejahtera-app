@@ -1,67 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jatisejahtera/components/content_items.dart';
+
 import 'package:jatisejahtera/config/colors.dart';
 
 class ContentScreen extends StatelessWidget {
-  ContentScreen({super.key});
+  final String imagesContent;
+  final String titleContent;
+  final String descContent;
 
-  final List<Map<String, dynamic>> myList = [
-    {
-      'no': 1,
-      'desc':
-          'Memberikan santunan kematian bagi pegawai dan pensiunan Perum Perhutani.'
-    },
-    {'no': 2, 'desc': 'Mengelola Panti Asuhan Rimba Bakti di Semarang.'},
-    {
-      'no': 3,
-      'desc':
-          'Memberikan santunan Nilai Hidup bagi pensiunan yang tidak pernah mengajukan klaim Bantuan Kesehatan selama masa perlindungan.'
-    },
-    {
-      'no': 4,
-      'desc':
-          'Mengelola serta mengembangkan dana kesehatan dan dana perumahan yang diperoleh dari Perum Perhutani.'
-    },
-    {
-      'no': 5,
-      'desc':
-          'Menjalankan usaha-usaha lain yang dianggap perlu dan bermanfaat sepanjang sesuai dengan maksud dan tujuan yayasan serta sesuai dengan peraturan dan perundangan yang berlaku.'
-    },
-    {'no': 6, 'desc': 'Memberi bantuan kepada korban bencana alam.'},
-    {
-      'no': 7,
-      'desc':
-          'Memberi bantuan kepada tuna wisma, fakir miskin, dan yatim piatu.'
-    },
-    {
-      'no': 1,
-      'desc':
-          'Memberikan santunan kematian bagi pegawai dan pensiunan Perum Perhutani.'
-    },
-    {'no': 2, 'desc': 'Mengelola Panti Asuhan Rimba Bakti di Semarang.'},
-    {
-      'no': 3,
-      'desc':
-          'Memberikan santunan Nilai Hidup bagi pensiunan yang tidak pernah mengajukan klaim Bantuan Kesehatan selama masa perlindungan.'
-    },
-    {
-      'no': 4,
-      'desc':
-          'Mengelola serta mengembangkan dana kesehatan dan dana perumahan yang diperoleh dari Perum Perhutani.'
-    },
-    {
-      'no': 5,
-      'desc':
-          'Menjalankan usaha-usaha lain yang dianggap perlu dan bermanfaat sepanjang sesuai dengan maksud dan tujuan yayasan serta sesuai dengan peraturan dan perundangan yang berlaku.'
-    },
-    {'no': 6, 'desc': 'Memberi bantuan kepada korban bencana alam.'},
-    {
-      'no': 7,
-      'desc':
-          'Memberi bantuan kepada tuna wisma, fakir miskin, dan yatim piatu.'
-    },
-  ];
+  const ContentScreen(
+      {super.key,
+      required this.imagesContent,
+      required this.titleContent,
+      required this.descContent});
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +42,7 @@ class ContentScreen extends StatelessWidget {
               ),
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  'assets/image/sosial.png',
+                  imagesContent,
                   fit: BoxFit.cover,
                 ),
                 stretchModes: const [
@@ -113,21 +64,13 @@ class ContentScreen extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 8.0),
                       Container(
                         width: 40.0,
                         height: 5.0,
                         decoration: BoxDecoration(
                           color: outlineColor,
                           borderRadius: BorderRadius.circular(100.0),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      const Text(
-                        'Sosial',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
@@ -137,6 +80,7 @@ class ContentScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Container(
+                height: 525,
                 decoration: const BoxDecoration(
                     color: Colors.white,
                     image: DecorationImage(
@@ -149,22 +93,13 @@ class ContentScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // const SizedBox(height: 16.0),
-                      // const Divider(color: outlineColor, height: 1.0),
                       const SizedBox(height: 16.0),
-                      const Text(
-                        'Beberapa kegiatan dibidang Sosial dan Kemanusiaan yang diselenggarakan oleh Yayasan diantaranya',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      Text(
+                        titleContent,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 16.0),
-                      const Divider(color: outlineColor, height: 1.0),
-                      const SizedBox(height: 16.0),
-                      ...List.generate(myList.length, (index) {
-                        return ContentItem(
-                            numberText: (index + 1).toString(),
-                            descText: myList[index]['desc']);
-                      }),
-                      const SizedBox(height: 32.0),
+                      Text(descContent)
                     ],
                   ),
                 ),

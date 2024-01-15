@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jatisejahtera/components/berita_items.dart';
 import 'package:jatisejahtera/components/galeri_items.dart';
-// import 'package:jatisejahtera/components/galeri_items.dart';
 import 'package:jatisejahtera/components/header_carousel.dart';
 import 'package:jatisejahtera/components/icon_program.dart';
 import 'package:jatisejahtera/components/claims.dart';
@@ -9,7 +8,9 @@ import 'package:jatisejahtera/components/realisasi.dart';
 import 'package:jatisejahtera/components/status_banner.dart';
 import 'package:jatisejahtera/config/colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:jatisejahtera/pages/content_screen.dart';
 import 'package:jatisejahtera/pages/kesehatan_screen.dart';
+import 'package:jatisejahtera/pages/news_screen.dart';
 import 'package:jatisejahtera/pages/pendidikan_screen.dart';
 import 'package:jatisejahtera/pages/perumahan_screen.dart';
 import 'package:jatisejahtera/pages/sosial_screen.dart';
@@ -48,21 +49,29 @@ class HomeScreen extends StatelessWidget {
     {
       'images': 'assets/image/berita_1.jpeg',
       'title':
-          'Sosialisasi Program yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3JS)'
+          'Sosialisasi Program yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3JS)',
+      'desc':
+          'Pengurus Yayasan jati sejahtera (YKP3JS) mengadakan kegiatan Sosialisasi Program Yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3JS) Jati Sejahtera Bagi Pensiunan dan Pegawai Aktif Perwakilan se Rayon V.'
     },
     {
       'images': 'assets/image/berita_2.jpeg',
       'title':
-          'Penyerahan bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Timur'
+          'Penyerahan bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Timur',
+      'desc':
+          'Pemberian Bantuan Pendidikan kepada 187siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional Jawa TImur.'
     },
     {
       'images': 'assets/image/berita_3.jpeg',
       'title':
-          'Penyerahan Bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Barat'
+          'Penyerahan Bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Barat',
+      'desc':
+          'Pemberian Bantuan Pendidikan kepada 175 siswa putra putri karyawan aktif dan pensiunan di lingkup kerja Divisi Regional Jawa Barat.'
     },
     {
       'images': 'assets/image/berita_4.jpeg',
-      'title': 'Malam Keakraban Kangen Perhutani 2'
+      'title': 'Malam Keakraban Kangen Perhutani 2',
+      'desc':
+          'Pendiri Yayasan Drs. Damami Abrori Menghadiri pertemuan para Pensiunan Perhutani pada acara malam keakraban kangen Perhutani 2 di Bandung.'
     },
   ];
   final List<Map<String, dynamic>> _galeriList = [
@@ -144,18 +153,26 @@ class HomeScreen extends StatelessWidget {
                         Container(
                           margin: const EdgeInsets.only(
                               top: 8, left: 16, right: 16),
-                          child: const Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('Berita',
+                              const Text('Berita',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w800,
                                       fontSize: 18)),
-                              Text(
-                                'Lihat semua',
-                                style: TextStyle(
-                                    color: primaryColor,
-                                    fontWeight: FontWeight.bold),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return NewsScreen();
+                                  }));
+                                },
+                                child: const Text(
+                                  'Lihat semua',
+                                  style: TextStyle(
+                                      color: primaryColor,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               )
                             ],
                           ),
@@ -171,6 +188,18 @@ class HomeScreen extends StatelessWidget {
                                     titleContent: _beritaList[index]['title'],
                                     itemIndex: index,
                                     itemLength: 4,
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return ContentScreen(
+                                            imagesContent: _beritaList[index]
+                                                ['images'],
+                                            titleContent: _beritaList[index]
+                                                ['title'],
+                                            descContent: _beritaList[index]
+                                                ['desc']);
+                                      }));
+                                    },
                                   );
                                 })),
                       ],
