@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jatisejahtera/components/berita.dart';
+import 'package:jatisejahtera/pages/content_screen.dart';
 
 class NewsScreen extends StatelessWidget {
   NewsScreen({super.key});
@@ -57,6 +58,14 @@ class NewsScreen extends StatelessWidget {
               contentImage: _beritaList[index]['images'],
               contentTitle: _beritaList[index]['title'],
               contentDesc: _beritaList[index]['desc'],
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ContentScreen(
+                      imagesContent: _beritaList[index]['images'],
+                      titleContent: _beritaList[index]['title'],
+                      descContent: _beritaList[index]['desc']);
+                }));
+              },
             );
           }),
     );

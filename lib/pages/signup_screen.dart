@@ -20,6 +20,7 @@ class SignupScreen extends StatelessWidget {
               image: AssetImage(
                 'assets/image/background_jati.png',
               ),
+              fit: BoxFit.contain,
               alignment: Alignment.topCenter)),
       child: Scaffold(
         backgroundColor: Colors.transparent,

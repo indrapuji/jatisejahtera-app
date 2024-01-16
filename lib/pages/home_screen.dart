@@ -9,10 +9,12 @@ import 'package:jatisejahtera/components/status_banner.dart';
 import 'package:jatisejahtera/config/colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jatisejahtera/pages/content_screen.dart';
+import 'package:jatisejahtera/pages/gallery_screen.dart';
 import 'package:jatisejahtera/pages/kesehatan_screen.dart';
 import 'package:jatisejahtera/pages/news_screen.dart';
 import 'package:jatisejahtera/pages/pendidikan_screen.dart';
 import 'package:jatisejahtera/pages/perumahan_screen.dart';
+import 'package:jatisejahtera/pages/signup_screen.dart';
 import 'package:jatisejahtera/pages/sosial_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -77,19 +79,27 @@ class HomeScreen extends StatelessWidget {
   final List<Map<String, dynamic>> _galeriList = [
     {
       'images': 'assets/image/galeri_1.jpeg',
-      'title': 'Pemberian Bantuan Pendidikan '
+      'title': 'Pemberian Bantuan Pendidikan ',
+      'desc':
+          'Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional jawa Tengah'
     },
     {
       'images': 'assets/image/galeri_2.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan'
+      'title': 'Penyerahan Bantuan Pendidikan',
+      'desc':
+          'Penyerahan bantuan Pendidikan di lingkup wil.kwrja Divisi RegionalJawa Barat'
     },
     {
       'images': 'assets/image/galeri_3.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan di Jawa Tengah'
+      'title': 'Penyerahan Bantuan Pendidikan di Jawa Tengah',
+      'desc':
+          'Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. kerja Divisi Regional Jawa Tengah'
     },
     {
       'images': 'assets/image/galeri_4.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan'
+      'title': 'Penyerahan Bantuan Pendidikan',
+      'desc':
+          'Pemberian Bantuan Pendidikan kepada 187 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. Divisi regional Jawa Timur'
     },
   ];
 
@@ -102,7 +112,8 @@ class HomeScreen extends StatelessWidget {
             physics: const ClampingScrollPhysics(),
             slivers: <Widget>[
               SliverAppBar(
-                expandedHeight: 140,
+                // expandedHeight: 160,
+                expandedHeight: MediaQuery.of(context).size.width - 250,
                 flexibleSpace: const FlexibleSpaceBar(
                   background: HeaderCarousel(),
                 ),
@@ -140,13 +151,19 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const StatusBanner(
-                      backgroundColor: Color.fromARGB(255, 208, 233, 248),
+                    StatusBanner(
+                      backgroundColor: const Color.fromARGB(255, 208, 233, 248),
                       descText:
                           'Daftarkan dirimu untuk mendapatkan manfaat lebih!',
                       buttonColor: primaryColor,
                       buttonText: 'Daftar',
                       buttonTextColor: Colors.white,
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const SignupScreen();
+                        }));
+                      },
                     ),
                     Column(
                       children: [
@@ -219,18 +236,26 @@ class HomeScreen extends StatelessWidget {
                         Container(
                           margin: const EdgeInsets.only(
                               top: 8, left: 16, right: 16),
-                          child: const Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('Galeri',
+                              const Text('Galeri',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w800,
                                       fontSize: 18)),
-                              Text(
-                                'Lihat semua',
-                                style: TextStyle(
-                                    color: primaryColor,
-                                    fontWeight: FontWeight.bold),
+                              GestureDetector(
+                                child: const Text(
+                                  'Lihat semua',
+                                  style: TextStyle(
+                                      color: primaryColor,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return GalleryScreen();
+                                  }));
+                                },
                               )
                             ],
                           ),
@@ -246,6 +271,18 @@ class HomeScreen extends StatelessWidget {
                                   titleContent: _galeriList[index]['title'],
                                   itemIndex: index,
                                   itemLength: 4,
+                                  onTap: () {
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return ContentScreen(
+                                          imagesContent: _galeriList[index]
+                                              ['images'],
+                                          titleContent: _galeriList[index]
+                                              ['title'],
+                                          descContent: _galeriList[index]
+                                              ['desc']);
+                                    }));
+                                  },
                                 );
                               }),
                         ),

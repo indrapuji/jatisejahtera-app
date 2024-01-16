@@ -82,12 +82,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ));
             }),
         Container(
-            alignment: const Alignment(0, 0.9),
+            alignment: const Alignment(0, 0.85),
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(
                       'assets/image/background_jati.png',
                     ),
+                    fit: BoxFit.contain,
                     alignment: Alignment.topCenter)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -104,7 +105,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     )),
                 SmoothPageIndicator(
                   controller: _controller,
-                  count: 4,
+                  count: _pages.length,
                   effect: const ExpandingDotsEffect(
                     dotColor: secondaryColor,
                     activeDotColor: primaryColor,
@@ -132,28 +133,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       'Next',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )),
-                // onLastPage
-                //     ? GestureDetector(
-                //         onTap: () {
-                //           Navigator.push(context,
-                //               MaterialPageRoute(builder: (context) {
-                //             return const WelcomeScreen();
-                //           }));
-                //         },
-                //         child: const Text(
-                //           'Done',
-                //           style: TextStyle(fontWeight: FontWeight.bold),
-                //         ))
-                //     : GestureDetector(
-                //         onTap: () {
-                //           _controller.nextPage(
-                //               duration: const Duration(milliseconds: 500),
-                //               curve: Curves.easeIn);
-                //         },
-                //         child: const Text(
-                //           'Next',
-                //           style: TextStyle(fontWeight: FontWeight.bold),
-                //         )),
               ],
             ))
       ],
