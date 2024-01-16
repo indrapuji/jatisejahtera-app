@@ -112,7 +112,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ),
                   onDotClicked: (index) => _controller.animateToPage(
                     index,
-                    duration: const Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.easeIn,
                   ),
                 ),

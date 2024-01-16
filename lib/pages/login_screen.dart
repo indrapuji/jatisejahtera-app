@@ -4,7 +4,7 @@ import 'package:jatisejahtera/components/back_header.dart';
 import 'package:jatisejahtera/components/input_text_field.dart';
 import 'package:jatisejahtera/components/static_button.dart';
 import 'package:jatisejahtera/pages/forgot_screen.dart';
-import 'package:jatisejahtera/pages/home_screen.dart';
+import 'package:jatisejahtera/pages/main_screen.dart';
 import 'package:jatisejahtera/pages/welcome_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -82,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return HomeScreen();
+                              return const MainScreen();
                             }));
                           },
                         ),

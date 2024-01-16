@@ -7,11 +7,12 @@ import 'package:jatisejahtera/components/claims.dart';
 import 'package:jatisejahtera/components/realisasi.dart';
 import 'package:jatisejahtera/components/status_banner.dart';
 import 'package:jatisejahtera/config/colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jatisejahtera/pages/content_screen.dart';
 import 'package:jatisejahtera/pages/gallery_screen.dart';
 import 'package:jatisejahtera/pages/kesehatan_screen.dart';
 import 'package:jatisejahtera/pages/news_screen.dart';
+import 'package:jatisejahtera/pages/notification_screen.dart';
 import 'package:jatisejahtera/pages/pendidikan_screen.dart';
 import 'package:jatisejahtera/pages/perumahan_screen.dart';
 import 'package:jatisejahtera/pages/signup_screen.dart';
@@ -112,8 +113,8 @@ class HomeScreen extends StatelessWidget {
             physics: const ClampingScrollPhysics(),
             slivers: <Widget>[
               SliverAppBar(
-                // expandedHeight: 160,
-                expandedHeight: MediaQuery.of(context).size.width - 250,
+                // expandedHeight: 215,
+                expandedHeight: MediaQuery.of(context).size.width - 200,
                 flexibleSpace: const FlexibleSpaceBar(
                   background: HeaderCarousel(),
                 ),
@@ -293,29 +294,73 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(
-                // ignore: deprecated_member_use
-                icon: FaIcon(FontAwesomeIcons.home, size: 20),
-                label: 'HOME',
-                // activeIcon:  ,
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.history_outlined,
+          // bottomNavigationBar: BottomNavigationBar(
+          //   items: const [
+          //     BottomNavigationBarItem(
+          //       // ignore: deprecated_member_use
+          //       icon: FaIcon(FontAwesomeIcons.home, size: 20),
+          //       label: 'HOME',
+          //       // activeIcon:  ,
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Icon(
+          //         Icons.history_outlined,
+          //       ),
+          //       label: 'RECORD',
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Icon(
+          //         Icons.person,
+          //       ),
+          //       label: 'USER',
+          //     ),
+          //   ],
+          //   selectedItemColor: primaryColor,
+          //   selectedFontSize: 12,
+          // ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const NotificationScreen();
+              }));
+            },
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+
+            // child: const Icon(Icons.notifications),
+            child: Stack(
+              children: [
+                const Icon(
+                  Icons.notifications,
+                  color: primaryColor,
+                  size: 40,
                 ),
-                label: 'RECORD',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
+                Container(
+                  width: 40,
+                  height: 40,
+                  alignment: Alignment.topRight,
+                  margin: const EdgeInsets.only(top: 3),
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.red,
+                        border: Border.all(color: Colors.white, width: 2)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(0.0),
+                      child: Center(
+                        child: Text(
+                          '3',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                label: 'USER',
-              ),
-            ],
-            selectedItemColor: primaryColor,
-            selectedFontSize: 12,
+              ],
+            ),
           ),
         ));
   }

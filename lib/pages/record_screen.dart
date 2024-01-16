@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jatisejahtera/config/colors.dart';
-import 'package:jatisejahtera/components/static_button.dart';
-import 'package:jatisejahtera/pages/main_screen.dart';
 
-class SuccessScreen extends StatelessWidget {
-  final String imageLogo;
-  final String titleText;
-  final String descText;
-  const SuccessScreen(
-      {super.key,
-      required this.imageLogo,
-      required this.titleText,
-      required this.descText});
+class RecordScreen extends StatelessWidget {
+  const RecordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,38 +33,37 @@ class SuccessScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Image.asset(
-                        imageLogo,
+                        'assets/image/empty.png',
                         height: 250,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 32),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 32),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Column(
                               children: [
-                                const SizedBox(height: 38),
+                                SizedBox(height: 38),
                                 Text(
-                                  titleText,
-                                  style: const TextStyle(
+                                  'Oops! Sepertinya masih kosong',
+                                  style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                       color: primaryColor),
                                 ),
-                                const SizedBox(height: 13),
+                                SizedBox(height: 13),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 25),
+                                  padding: EdgeInsets.symmetric(horizontal: 25),
                                   child: Text(
-                                    descText,
+                                    'Yuk ajukan klaim pertama mu',
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 13,
                                       color: primaryColor,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 12),
+                                SizedBox(height: 12),
                               ],
                             ),
                           ],
@@ -82,18 +72,6 @@ class SuccessScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
-                    child: StaticButton(
-                        text: 'Selesai',
-                        backgroundColor: primaryColor,
-                        colorText: Colors.white,
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const MainScreen();
-                          }));
-                        }))
               ],
             ),
           )),

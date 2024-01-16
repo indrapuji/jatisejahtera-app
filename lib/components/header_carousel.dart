@@ -40,7 +40,7 @@ class _HeaderCarouselState extends State<HeaderCarousel> {
                 options: CarouselOptions(
                   scrollPhysics: const BouncingScrollPhysics(),
                   autoPlay: true,
-                  aspectRatio: 2,
+                  aspectRatio: 1.6,
                   viewportFraction: 1,
                   onPageChanged: (index, reason) {
                     setState(() {
