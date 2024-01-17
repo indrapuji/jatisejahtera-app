@@ -38,7 +38,7 @@ class GaleriItems extends StatelessWidget {
               child: SizedBox(
                 width: 155,
                 height: 155,
-                child: Image.asset(
+                child: Image.network(
                   imagesContent,
                   fit: BoxFit.cover,
                 ),

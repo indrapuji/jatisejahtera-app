@@ -41,7 +41,7 @@ class ContentScreen extends StatelessWidget {
                 ),
               ),
               flexibleSpace: FlexibleSpaceBar(
-                background: Image.asset(
+                background: Image.network(
                   imagesContent,
                   fit: BoxFit.cover,
                 ),

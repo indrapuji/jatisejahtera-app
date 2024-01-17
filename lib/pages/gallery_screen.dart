@@ -6,29 +6,70 @@ class GalleryScreen extends StatelessWidget {
 
   final List<Map<String, dynamic>> _galeriList = [
     {
-      'images': 'assets/image/galeri_1.jpeg',
-      'title': 'Pemberian Bantuan Pendidikan ',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional jawa Tengah'
+      "id": 65,
+      "title": "Pemberian Bantuan Pendidikan ",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional jawa Tengah",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687794627230.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-26T15:50:27.238Z",
+      "updatedAt": "2023-06-26T15:50:27.238Z"
     },
     {
-      'images': 'assets/image/galeri_2.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan',
-      'desc':
-          'Penyerahan bantuan Pendidikan di lingkup wil.kwrja Divisi RegionalJawa Barat'
+      "id": 49,
+      "title": "Penyerahan Bantuan Pendidikan",
+      "subtitle": "",
+      "desc":
+          "Penyerahan bantuan Pendidikan di lingkup wil.kwrja Divisi RegionalJawa Barat",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687490104408.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-23T03:15:04.422Z",
+      "updatedAt": "2023-06-23T03:15:04.422Z"
     },
     {
-      'images': 'assets/image/galeri_3.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan di Jawa Tengah',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. kerja Divisi Regional Jawa Tengah'
+      "id": 43,
+      "title": "Penyerahan BAntuan Pendidikan di Jawa Tengah",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. kerja Divisi Regional Jawa Tengah",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687419519660.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-22T07:38:39.668Z",
+      "updatedAt": "2023-06-22T07:38:39.668Z"
     },
     {
-      'images': 'assets/image/galeri_4.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 187 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. Divisi regional Jawa Timur'
+      "id": 42,
+      "title": "Pwnyerahan Bantuan Pendidikan",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 187 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. Divisi regional Jawa Timur",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687419335935.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-22T07:35:35.943Z",
+      "updatedAt": "2023-06-22T07:35:35.943Z"
     },
+    {
+      "id": 16,
+      "title": "Bantuan Untuk Panti asuhan",
+      "subtitle": "",
+      "desc":
+          "Yayasan Jatisejahtera memberikan bantuan untuk Panti Asuhan Rimba Bakti",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1683875823819.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-05-12T07:17:03.827Z",
+      "updatedAt": "2023-05-12T07:17:03.827Z"
+    }
   ];
 
   @override
@@ -59,12 +100,12 @@ class GalleryScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return ContentScreen(
-                        imagesContent: _galeriList[index]['images'],
+                        imagesContent: _galeriList[index]['image_url'],
                         titleContent: _galeriList[index]['title'],
                         descContent: _galeriList[index]['desc']);
                   }));
                 },
-                child: Image.asset(_galeriList[index]['images'],
+                child: Image.network(_galeriList[index]['image_url'],
                     fit: BoxFit.cover),
               );
             })
