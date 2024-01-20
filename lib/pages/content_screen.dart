@@ -87,6 +87,7 @@ class ContentScreen extends StatelessWidget {
                         image: AssetImage(
                           'assets/image/background_bottom.png',
                         ),
+                        fit: BoxFit.contain,
                         alignment: Alignment.bottomCenter)),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),

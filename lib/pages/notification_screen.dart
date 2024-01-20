@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jatisejahtera/config/colors.dart';
+import 'package:jatisejahtera/components/empty_image.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
@@ -20,34 +20,9 @@ class NotificationScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Expanded(
-            child: Container(
-              color: Colors.transparent,
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Column(
-              children: [
-                Image.asset(
-                  'assets/image/empty.png',
-                  height: 250,
-                ),
-                const SizedBox(height: 38),
-                const Text(
-                  'Oops! Tidak ada info terbaru',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: primaryColor),
-                ),
-              ],
-            ),
-          ),
-        ],
+      body: const EmptyImage(
+        imageContent: 'assets/image/empty.png',
+        textTitle: 'Oops! Tidak ada info terbaru',
       ),
     );
   }
