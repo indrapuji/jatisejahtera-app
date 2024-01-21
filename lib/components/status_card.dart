@@ -56,7 +56,7 @@ class StatusCard extends StatelessWidget {
                             claim,
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 26,
+                                fontSize: 24,
                                 color: Colors.white),
                           ),
                           const Divider(height: 5),
