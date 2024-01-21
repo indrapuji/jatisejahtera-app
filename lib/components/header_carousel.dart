@@ -10,10 +10,46 @@ class HeaderCarousel extends StatefulWidget {
 }
 
 class _HeaderCarouselState extends State<HeaderCarousel> {
+  // List imageList = [
+  //   {"id": 1, "image_path": 'assets/image/banner.png'},
+  //   {"id": 1, "image_path": 'assets/image/banner.png'},
+  //   {"id": 1, "image_path": 'assets/image/banner.png'},
+  // ];
+
   List imageList = [
-    {"id": 1, "image_path": 'assets/image/banner.png'},
-    {"id": 1, "image_path": 'assets/image/banner.png'},
-    {"id": 1, "image_path": 'assets/image/banner.png'},
+    {
+      "id": 116,
+      "title": "wa center",
+      "subtitle": "",
+      "desc": "https://jatisejahtera.or.id/",
+      "image_url": "https://jati.pasangbajaringan.id/uploads/1698208780388.jpg",
+      "category": "carousel",
+      "status": true,
+      "createdAt": "2023-10-25T04:39:40.405Z",
+      "updatedAt": "2023-10-25T04:39:40.405Z"
+    },
+    {
+      "id": 108,
+      "title": "Pohon beringin",
+      "subtitle": "",
+      "desc": "https://jatisejahtera.or.id/",
+      "image_url": "https://jati.pasangbajaringan.id/uploads/1688629641150.jpg",
+      "category": "carousel",
+      "status": true,
+      "createdAt": "2023-07-06T07:47:21.165Z",
+      "updatedAt": "2023-07-06T07:47:21.165Z"
+    },
+    {
+      "id": 97,
+      "title": "Hutan Jati",
+      "subtitle": "",
+      "desc": "https://jatisejahtera.or.id/",
+      "image_url": "https://jati.pasangbajaringan.id/uploads/1688612664560.jpg",
+      "category": "carousel",
+      "status": true,
+      "createdAt": "2023-07-06T03:04:24.562Z",
+      "updatedAt": "2023-07-06T03:04:24.562Z"
+    }
   ];
   final CarouselController carouselController = CarouselController();
 
@@ -29,8 +65,8 @@ class _HeaderCarouselState extends State<HeaderCarousel> {
               child: CarouselSlider(
                 items: imageList
                     .map(
-                      (item) => Image.asset(
-                        item['image_path'],
+                      (item) => Image.network(
+                        item['image_url'],
                         fit: BoxFit.cover,
                         width: double.infinity,
                       ),

@@ -84,6 +84,7 @@ class PerumahanScreen extends StatelessWidget {
                       image: AssetImage(
                         'assets/image/background_bottom.png',
                       ),
+                      fit: BoxFit.contain,
                       alignment: Alignment.bottomCenter)),
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),

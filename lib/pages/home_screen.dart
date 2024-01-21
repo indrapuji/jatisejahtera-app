@@ -50,58 +50,153 @@ class HomeScreen extends StatelessWidget {
 
   final List<Map<String, dynamic>> _beritaList = [
     {
-      'images': 'assets/image/berita_1.jpeg',
-      'title':
-          'Sosialisasi Program yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3JS)',
-      'desc':
-          'Pengurus Yayasan jati sejahtera (YKP3JS) mengadakan kegiatan Sosialisasi Program Yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3JS) Jati Sejahtera Bagi Pensiunan dan Pegawai Aktif Perwakilan se Rayon V.'
+      "id": 111,
+      "title":
+          "Sosialisasi Program yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3JS)",
+      "subtitle": "",
+      "desc":
+          "Pengurus Yayasan jati sejahtera (YKP3JS) mengadakan kegiatan Sosialisasi Program Yayasan Kesejahteraan Pegawai Perum Perhutani (YKP3JS) Jati Sejahtera Bagi Pensiunan dan Pegawai Aktif Perwakilan se Rayon V",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1695196610367.jpeg",
+      "category": "berita",
+      "status": true,
+      "createdAt": "2023-09-20T07:56:50.379Z",
+      "updatedAt": "2023-09-20T07:56:50.379Z"
     },
     {
-      'images': 'assets/image/berita_2.jpeg',
-      'title':
-          'Penyerahan bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Timur',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 187siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional Jawa TImur.'
+      "id": 107,
+      "title":
+          "Penyerahan bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Timur",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 187siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional Jawa TImur",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1688628661756.jpeg",
+      "category": "berita",
+      "status": true,
+      "createdAt": "2023-07-06T07:31:01.765Z",
+      "updatedAt": "2023-07-06T07:31:01.765Z"
     },
     {
-      'images': 'assets/image/berita_3.jpeg',
-      'title':
-          'Penyerahan Bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Barat',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 175 siswa putra putri karyawan aktif dan pensiunan di lingkup kerja Divisi Regional Jawa Barat.'
+      "id": 106,
+      "title":
+          "Penyerahan Bantuan Pendidikan di Lingkup Wil.kerja Divisi Regional Jawa Barat",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 175 siswa putra putri karyawan aktif dan pensiunan di lingkup kerja Divisi Regional Jawa Barat",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1688628460294.jpeg",
+      "category": "berita",
+      "status": true,
+      "createdAt": "2023-07-06T07:27:40.304Z",
+      "updatedAt": "2023-07-06T07:27:40.304Z"
     },
     {
-      'images': 'assets/image/berita_4.jpeg',
-      'title': 'Malam Keakraban Kangen Perhutani 2',
-      'desc':
-          'Pendiri Yayasan Drs. Damami Abrori Menghadiri pertemuan para Pensiunan Perhutani pada acara malam keakraban kangen Perhutani 2 di Bandung.'
+      "id": 105,
+      "title": "Malam Keakraban Kangen Perhutani 2",
+      "subtitle": "",
+      "desc":
+          "Pendiri Yayasan Drs. Damami Abrori Menghadiri pertemuan para Pensiunan Perhutani pada acara malam keakraban kangen Perhutani 2 di Bandung.",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1688627810612.jpeg",
+      "category": "berita",
+      "status": true,
+      "createdAt": "2023-07-06T07:16:50.620Z",
+      "updatedAt": "2023-07-06T07:16:50.620Z"
     },
+    {
+      "id": 64,
+      "title":
+          "Penyerahan Bantuan Pendidikan di Lingkup Wil.Kerja Divisi Regional Jawa Tengah",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional jawa Tengah",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687794414079.jpeg",
+      "category": "berita",
+      "status": true,
+      "createdAt": "2023-06-26T15:46:54.091Z",
+      "updatedAt": "2023-06-26T15:46:54.091Z"
+    },
+    {
+      "id": 18,
+      "title": "Yayasan Jati Sejahtera (YKP3JS) Silaturahmi Di Jawa Barat",
+      "subtitle": "",
+      "desc":
+          "Pengurus Yayasan jati sejahtera (YKP3JS) mengadakan kegiatan Silaturahmi dan edukasi bersama perwakilan yayasan jati sejahtera di jawa barat",
+      "image_url": "https://jati.pasangbajaringan.id/uploads/1684042008247.jpg",
+      "category": "berita",
+      "status": true,
+      "createdAt": "2023-05-14T05:26:48.285Z",
+      "updatedAt": "2023-05-14T05:26:48.285Z"
+    }
   ];
   final List<Map<String, dynamic>> _galeriList = [
     {
-      'images': 'assets/image/galeri_1.jpeg',
-      'title': 'Pemberian Bantuan Pendidikan ',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional jawa Tengah'
+      "id": 65,
+      "title": "Pemberian Bantuan Pendidikan ",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil.kerja Divisi Regional jawa Tengah",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687794627230.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-26T15:50:27.238Z",
+      "updatedAt": "2023-06-26T15:50:27.238Z"
     },
     {
-      'images': 'assets/image/galeri_2.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan',
-      'desc':
-          'Penyerahan bantuan Pendidikan di lingkup wil.kwrja Divisi RegionalJawa Barat'
+      "id": 49,
+      "title": "Penyerahan Bantuan Pendidikan",
+      "subtitle": "",
+      "desc":
+          "Penyerahan bantuan Pendidikan di lingkup wil.kwrja Divisi RegionalJawa Barat",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687490104408.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-23T03:15:04.422Z",
+      "updatedAt": "2023-06-23T03:15:04.422Z"
     },
     {
-      'images': 'assets/image/galeri_3.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan di Jawa Tengah',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. kerja Divisi Regional Jawa Tengah'
+      "id": 43,
+      "title": "Penyerahan BAntuan Pendidikan di Jawa Tengah",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 179 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. kerja Divisi Regional Jawa Tengah",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687419519660.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-22T07:38:39.668Z",
+      "updatedAt": "2023-06-22T07:38:39.668Z"
     },
     {
-      'images': 'assets/image/galeri_4.jpeg',
-      'title': 'Penyerahan Bantuan Pendidikan',
-      'desc':
-          'Pemberian Bantuan Pendidikan kepada 187 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. Divisi regional Jawa Timur'
+      "id": 42,
+      "title": "Pwnyerahan Bantuan Pendidikan",
+      "subtitle": "",
+      "desc":
+          "Pemberian Bantuan Pendidikan kepada 187 siswa putra putri karyawan aktif dan pensiunan di lingkup Wil. Divisi regional Jawa Timur",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1687419335935.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-06-22T07:35:35.943Z",
+      "updatedAt": "2023-06-22T07:35:35.943Z"
     },
+    {
+      "id": 16,
+      "title": "Bantuan Untuk Panti asuhan",
+      "subtitle": "",
+      "desc":
+          "Yayasan Jatisejahtera memberikan bantuan untuk Panti Asuhan Rimba Bakti",
+      "image_url":
+          "https://jati.pasangbajaringan.id/uploads/1683875823819.jpeg",
+      "category": "galeri",
+      "status": true,
+      "createdAt": "2023-05-12T07:17:03.827Z",
+      "updatedAt": "2023-05-12T07:17:03.827Z"
+    }
   ];
 
   @override
@@ -202,7 +297,8 @@ class HomeScreen extends StatelessWidget {
                                 itemCount: 4,
                                 itemBuilder: (context, index) {
                                   return BeritaItems(
-                                    imagesContent: _beritaList[index]['images'],
+                                    imagesContent: _beritaList[index]
+                                        ['image_url'],
                                     titleContent: _beritaList[index]['title'],
                                     itemIndex: index,
                                     itemLength: 4,
@@ -211,7 +307,7 @@ class HomeScreen extends StatelessWidget {
                                           MaterialPageRoute(builder: (context) {
                                         return ContentScreen(
                                             imagesContent: _beritaList[index]
-                                                ['images'],
+                                                ['image_url'],
                                             titleContent: _beritaList[index]
                                                 ['title'],
                                             descContent: _beritaList[index]
@@ -268,7 +364,8 @@ class HomeScreen extends StatelessWidget {
                               itemCount: 4,
                               itemBuilder: (context, index) {
                                 return GaleriItems(
-                                  imagesContent: _galeriList[index]['images'],
+                                  imagesContent: _galeriList[index]
+                                      ['image_url'],
                                   titleContent: _galeriList[index]['title'],
                                   itemIndex: index,
                                   itemLength: 4,
@@ -277,7 +374,7 @@ class HomeScreen extends StatelessWidget {
                                         MaterialPageRoute(builder: (context) {
                                       return ContentScreen(
                                           imagesContent: _galeriList[index]
-                                              ['images'],
+                                              ['image_url'],
                                           titleContent: _galeriList[index]
                                               ['title'],
                                           descContent: _galeriList[index]
@@ -294,30 +391,6 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-          // bottomNavigationBar: BottomNavigationBar(
-          //   items: const [
-          //     BottomNavigationBarItem(
-          //       // ignore: deprecated_member_use
-          //       icon: FaIcon(FontAwesomeIcons.home, size: 20),
-          //       label: 'HOME',
-          //       // activeIcon:  ,
-          //     ),
-          //     BottomNavigationBarItem(
-          //       icon: Icon(
-          //         Icons.history_outlined,
-          //       ),
-          //       label: 'RECORD',
-          //     ),
-          //     BottomNavigationBarItem(
-          //       icon: Icon(
-          //         Icons.person,
-          //       ),
-          //       label: 'USER',
-          //     ),
-          //   ],
-          //   selectedItemColor: primaryColor,
-          //   selectedFontSize: 12,
-          // ),
           floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
           floatingActionButton: FloatingActionButton(
             onPressed: () {

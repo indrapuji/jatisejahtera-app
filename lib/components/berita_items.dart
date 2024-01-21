@@ -41,7 +41,7 @@ class BeritaItems extends StatelessWidget {
                 SizedBox(
                   height: 100,
                   width: 250,
-                  child: Image.asset(
+                  child: Image.network(
                     imagesContent,
                     fit: BoxFit.cover,
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jatisejahtera/config/colors.dart';
+import 'package:jatisejahtera/pages/realisasi_screen.dart';
 
 class Realisasi extends StatelessWidget {
   Realisasi({super.key});
@@ -23,29 +24,38 @@ class Realisasi extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ...List.generate(myList.length, (index) {
-            return Padding(
-              padding: const EdgeInsets.only(top: 8, bottom: 8),
-              child: Container(
-                height: 90,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: outlineColor),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        myList[index]['images'],
-                        height: 60,
-                      ),
-                      Text(
-                        myList[index]['title'],
-                        textAlign: TextAlign.left,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 40),
-                      )
-                    ],
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return RealisasiScreen(
+                    titleText: myList[index]['title'],
+                  );
+                }));
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 8),
+                child: Container(
+                  height: 90,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: outlineColor),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          myList[index]['images'],
+                          height: 60,
+                        ),
+                        Text(
+                          myList[index]['title'],
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 40),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

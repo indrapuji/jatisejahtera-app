@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BackHeader extends StatelessWidget {
-  final String headerTitle;
-  const BackHeader({super.key, required this.headerTitle});
+  final String? headerTitle;
+  const BackHeader({super.key, this.headerTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,13 @@ class BackHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          Text(
-            headerTitle,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          )
+          headerTitle != null
+              ? Text(
+                  headerTitle!,
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
+                )
+              : Container()
         ],
       ),
     );

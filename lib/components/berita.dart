@@ -30,7 +30,7 @@ class Berita extends StatelessWidget {
                   child: SizedBox(
                     width: 150,
                     height: 120,
-                    child: Image.asset(
+                    child: Image.network(
                       contentImage,
                       fit: BoxFit.cover,
                     ),

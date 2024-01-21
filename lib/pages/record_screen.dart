@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jatisejahtera/config/colors.dart';
+import 'package:jatisejahtera/components/status_card.dart';
+import 'package:jatisejahtera/pages/status_screen.dart';
+// import 'package:jatisejahtera/components/empty_image.dart';
 
 class RecordScreen extends StatelessWidget {
   const RecordScreen({super.key});
@@ -18,62 +20,60 @@ class RecordScreen extends StatelessWidget {
               alignment: Alignment.topCenter)),
       child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.transparent,
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        'assets/image/empty.png',
-                        height: 250,
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 32),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                SizedBox(height: 38),
-                                Text(
-                                  'Oops! Sepertinya masih kosong',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: primaryColor),
-                                ),
-                                SizedBox(height: 13),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 25),
-                                  child: Text(
-                                    'Yuk ajukan klaim pertama mu',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: primaryColor,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 12),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+          // body: EmptyImage(
+          //   imageContent: 'assets/image/empty.png',
+          //   textTitle: 'Oops! Sepertinya masih kosong',
+          //   textSub: 'Yuk ajukan klaim pertama mu',
+          // ),
+          body: Column(
+            children: [
+              const SizedBox(height: 50),
+              StatusCard(
+                status: 'approve',
+                cardDate: '24 Mei 2023',
+                claim: 'Bantuan Kacamata',
+                massage: '',
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const StatusScreen(
+                      status: 'approve',
+                      claim: 'Bantuan Kacamata',
+                      massage: '',
+                    );
+                  }));
+                },
+              ),
+              StatusCard(
+                status: 'reject',
+                cardDate: '24 Mei 2023',
+                claim: 'Bantuan Kacamata',
+                massage: 'Masa pertanggungan telah berakhir',
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const StatusScreen(
+                      status: 'reject',
+                      claim: 'Bantuan Kacamata',
+                      massage: 'Masa pertanggungan telah berakhir',
+                    );
+                  }));
+                },
+              ),
+              StatusCard(
+                status: 'prosess',
+                cardDate: 'Proses',
+                claim: 'Bantuan Kacamata',
+                massage: '',
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const StatusScreen(
+                      status: 'prosess',
+                      claim: 'Bantuan Kacamata',
+                      massage: 'Masa pertanggungan telah berakhir',
+                    );
+                  }));
+                },
+              )
+            ],
           )),
     );
   }
