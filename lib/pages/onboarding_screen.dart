@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jatisejahtera/config/colors.dart';
-import 'package:jatisejahtera/pages/welcome_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -119,10 +118,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 GestureDetector(
                     onTap: onLastPage
                         ? () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return const WelcomeScreen();
-                            }));
+                            Navigator.pushNamed(context, '/welcomepage');
                           }
                         : () {
                             _controller.nextPage(
