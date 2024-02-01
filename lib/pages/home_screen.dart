@@ -9,12 +9,9 @@ import 'package:jatisejahtera/components/status_banner.dart';
 import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/models/content_model.dart';
 import 'package:jatisejahtera/pages/content_screen.dart';
-import 'package:jatisejahtera/pages/gallery_screen.dart';
-import 'package:jatisejahtera/pages/news_screen.dart';
 import 'package:jatisejahtera/pages/notification_screen.dart';
 import 'package:jatisejahtera/pages/signup_screen.dart';
 import 'package:jatisejahtera/services/content_service.dart';
-// import 'package:jatisejahtera/services/content_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -158,11 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             fontSize: 18)),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return NewsScreen();
-                                        }));
+                                        Navigator.pushNamed(context, '/news');
                                       },
                                       child: const Text(
                                         'Lihat semua',
@@ -238,11 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                       onTap: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return GalleryScreen();
-                                        }));
+                                        Navigator.pushNamed(context, '/galeri');
                                       },
                                     )
                                   ],

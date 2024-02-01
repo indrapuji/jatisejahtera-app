@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jatisejahtera/pages/gallery_screen.dart';
 import 'package:jatisejahtera/pages/home_screen.dart';
 import 'package:jatisejahtera/pages/kesehatan_screen.dart';
 import 'package:jatisejahtera/pages/login_screen.dart';
 import 'package:jatisejahtera/pages/main_screen.dart';
+import 'package:jatisejahtera/pages/news_screen.dart';
 import 'package:jatisejahtera/pages/onboarding_screen.dart';
 import 'package:jatisejahtera/pages/pendidikan_screen.dart';
 import 'package:jatisejahtera/pages/perumahan_screen.dart';
@@ -32,7 +34,9 @@ class MyApp extends StatelessWidget {
         '/program/pendidikan': (context) => PendidikanScreen(),
         '/program/sosial': (context) => SosialScreen(),
         '/program/perumahan': (context) => const PerumahanScreen(),
-        '/program/kesehatan': (context) => KesehatanScreen()
+        '/program/kesehatan': (context) => KesehatanScreen(),
+        '/news': (context) => const NewsScreen(),
+        '/galeri': (context) => const GalleryScreen()
       },
     );
   }

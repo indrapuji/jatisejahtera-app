@@ -6,6 +6,7 @@ import 'package:jatisejahtera/components/input_text_field.dart';
 import 'package:jatisejahtera/components/static_button.dart';
 import 'package:jatisejahtera/pages/login_screen.dart';
 import 'package:jatisejahtera/pages/success_screen.dart';
+import 'package:jatisejahtera/services/user_service.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -15,6 +16,10 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  UserService userService = UserService();
+  final _dataNIP = TextEditingController();
+  final bool response = false;
+
   @override
   void initState() {
     super.initState();
@@ -148,58 +153,69 @@ class _SignupScreenState extends State<SignupScreen> {
       isDismissible: false,
       context: context,
       builder: (context) {
-        return Wrap(
-          children: [
-            const Stack(children: [
-              Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    height: 35.0,
-                    child: Column(
-                      children: [SizedBox(height: 15), Text("Masukkan NIP")],
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Wrap(
+            children: [
+              const Stack(children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      height: 35.0,
+                      child: Column(
+                        children: [SizedBox(height: 15), Text("Masukkan NIP")],
+                      ),
                     ),
-                  ),
-                  Divider(
-                    color: Colors.black,
-                    height: 25,
-                    thickness: 1,
-                    indent: 5,
-                    endIndent: 5,
-                  ),
-                ],
-              )
-            ]),
-            const Padding(
-              padding: EdgeInsets.only(left: 16, right: 16, top: 16),
-              child: InputTextField(
-                labelText: "NIP",
+                    Divider(
+                      color: Colors.black,
+                      height: 25,
+                      thickness: 1,
+                      indent: 5,
+                      endIndent: 5,
+                    ),
+                  ],
+                )
+              ]),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+                child: InputTextField(
+                  controller: _dataNIP,
+                  labelText: "NIP",
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 32, bottom: 16, left: 16, right: 16),
-              child: StaticButton(
-                backgroundColor: rejectColor,
-                text: 'Cancel',
-                colorText: Colors.white,
-                onTap: () {
-                  Navigator.pushNamed(context, '/homepage');
-                },
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 32, bottom: 16, left: 16, right: 16),
+                child: StaticButton(
+                  backgroundColor: rejectColor,
+                  text: 'Cancel',
+                  colorText: Colors.white,
+                  onTap: () {
+                    Navigator.pushNamed(context, '/homepage');
+                  },
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 32, left: 16, right: 16),
-              child: StaticButton(
-                backgroundColor: primaryColor,
-                text: 'Cek',
-                colorText: Colors.white,
-                onTap: () {
-                  Navigator.pop(context);
-                },
+              Padding(
+                padding: const EdgeInsets.only(bottom: 32, left: 16, right: 16),
+                child: StaticButton(
+                  backgroundColor: primaryColor,
+                  text: 'Cek',
+                  colorText: Colors.white,
+                  onTap: () async {
+                    await userService.userCheck(_dataNIP.text);
+                    // if (response) {
+                    //   Navigator.pop(context);
+                    // } else {
+                    //   Navigator.pushNamed(context, '/homepage');
+                    // }
+                    // Navigator.pop(context);
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

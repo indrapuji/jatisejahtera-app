@@ -47,4 +47,18 @@ class ContentService {
       throw Exception(e.toString());
     }
   }
+
+  Future fetchRealisasi(String contentTitle) async {
+    try {
+      final response = await http.get(
+          Uri.parse('$_baseUrl/content?category=$contentTitle&status=true'));
+      if (response.statusCode == 200) {
+        Iterable it = jsonDecode(response.body);
+        List<Content> realisasi = it.map((e) => Content.fromJson(e)).toList();
+        return realisasi;
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
 }

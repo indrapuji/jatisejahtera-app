@@ -71,7 +71,8 @@ class _HeaderCarouselState extends State<HeaderCarousel> {
   Widget build(BuildContext context) {
     return isLoading
         ? const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(primaryColor)),
           )
         : Column(
             children: [
