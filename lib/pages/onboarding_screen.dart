@@ -43,6 +43,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     return Scaffold(
         body: Stack(
       children: [
+        Container(
+          alignment: const Alignment(0, 0.85),
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    'assets/image/background_jati.png',
+                  ),
+                  fit: BoxFit.contain,
+                  alignment: Alignment.topCenter)),
+        ),
         PageView.builder(
             controller: _controller,
             itemCount: _pages.length,
@@ -81,56 +91,50 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ));
             }),
         Container(
-            alignment: const Alignment(0, 0.85),
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                      'assets/image/background_jati.png',
-                    ),
-                    fit: BoxFit.contain,
-                    alignment: Alignment.topCenter)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                    onTap: () {
-                      _controller.jumpToPage(3);
-                    },
-                    child: Text(
-                      'Skip',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: onLastPage ? Colors.white : Colors.black),
-                    )),
-                SmoothPageIndicator(
-                  controller: _controller,
-                  count: _pages.length,
-                  effect: const ExpandingDotsEffect(
-                    dotColor: secondaryColor,
-                    activeDotColor: primaryColor,
-                  ),
-                  onDotClicked: (index) => _controller.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn,
-                  ),
+          alignment: const Alignment(0, 0.85),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    _controller.jumpToPage(3);
+                  },
+                  child: Text(
+                    'Skip',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: onLastPage ? Colors.white : Colors.black),
+                  )),
+              SmoothPageIndicator(
+                controller: _controller,
+                count: _pages.length,
+                effect: const ExpandingDotsEffect(
+                  dotColor: secondaryColor,
+                  activeDotColor: primaryColor,
                 ),
-                GestureDetector(
-                    onTap: onLastPage
-                        ? () {
-                            Navigator.pushNamed(context, '/welcomepage');
-                          }
-                        : () {
-                            _controller.nextPage(
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeIn);
-                          },
-                    child: const Text(
-                      'Next',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )),
-              ],
-            ))
+                onDotClicked: (index) => _controller.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn,
+                ),
+              ),
+              GestureDetector(
+                  onTap: onLastPage
+                      ? () {
+                          Navigator.pushNamed(context, '/welcomepage');
+                        }
+                      : () {
+                          _controller.nextPage(
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeIn);
+                        },
+                  child: const Text(
+                    'Next',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )),
+            ],
+          ),
+        )
       ],
     ));
   }
