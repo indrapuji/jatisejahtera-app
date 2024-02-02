@@ -203,15 +203,18 @@ class _SignupScreenState extends State<SignupScreen> {
                   backgroundColor: primaryColor,
                   text: 'Cek',
                   colorText: Colors.white,
-                  onTap: () async {
-                    await userService.userCheck(_dataNIP.text);
-                    // if (response) {
-                    //   Navigator.pop(context);
-                    // } else {
-                    //   Navigator.pushNamed(context, '/homepage');
-                    // }
-                    // Navigator.pop(context);
+                  onTap: () {
+                    Navigator.pop(context);
                   },
+                  // onTap: () async {
+                  //   await userService.userCheck(_dataNIP.text);
+                  //   if (response) {
+                  //     Navigator.pop(context);
+                  //   } else {
+                  //     Navigator.pushNamed(context, '/homepage');
+                  //   }
+                  //   Navigator.pop(context);
+                  // },
                 ),
               ),
             ],

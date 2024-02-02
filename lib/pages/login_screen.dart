@@ -105,10 +105,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             const Text('Belum memiliki akun? ',
                                 style: TextStyle(fontSize: 12)),
                             GestureDetector(
-                              onTap: () async {
-                                await userService.userLogin(
-                                    _usernameController.text,
-                                    _passwordController.text);
+                              onTap: () {
+                                Navigator.pushNamed(context, '/mainpage');
+
+                                // onTap: () async {
+                                //   await userService.userLogin(
+                                //       _usernameController.text,
+                                //       _passwordController.text);
 
                                 // if (response) {
                                 //   Navigator.pushNamed(context, '/mainpage');
