@@ -5,10 +5,20 @@ import 'package:jatisejahtera/components/input_text_field.dart';
 import 'package:jatisejahtera/components/static_button.dart';
 import 'package:jatisejahtera/pages/forgot_screen.dart';
 import 'package:jatisejahtera/pages/main_screen.dart';
-import 'package:jatisejahtera/pages/welcome_screen.dart';
+// import 'package:jatisejahtera/pages/welcome_screen.dart';
+import 'package:jatisejahtera/services/user_service.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  UserService userService = UserService();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +43,20 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 32, right: 32),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 32, right: 32),
                         child: InputTextField(
+                          controller: _usernameController,
                           labelText: "Username",
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 32, right: 32),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 32, right: 32),
                         child: InputTextField(
+                          controller: _passwordController,
                           labelText: 'Password',
                           isObscureText: true,
-                          suffixIcon: Icon(
+                          suffixIcon: const Icon(
                             Icons.visibility_off,
                             color: primaryColor,
                           ),
@@ -94,10 +106,23 @@ class LoginScreen extends StatelessWidget {
                                 style: TextStyle(fontSize: 12)),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return const WelcomeScreen();
-                                }));
+                                Navigator.pushNamed(context, '/mainpage');
+
+                                // onTap: () async {
+                                //   await userService.userLogin(
+                                //       _usernameController.text,
+                                //       _passwordController.text);
+
+                                // if (response) {
+                                //   Navigator.pushNamed(context, '/mainpage');
+                                // } else {
+                                //   Navigator.pop(context);
+                                // }
+
+                                // Navigator.push(context,
+                                //     MaterialPageRoute(builder: (context) {
+                                //   return const WelcomeScreen();
+                                // }));
                               },
                               child: const Text(
                                 'Daftar',

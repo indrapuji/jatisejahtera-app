@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jatisejahtera/pages/main_screen.dart';
 import 'package:jatisejahtera/config/colors.dart';
 import 'package:jatisejahtera/components/animate_button.dart';
-import 'package:jatisejahtera/components/input_text_field.dart';
 import 'package:jatisejahtera/components/static_button.dart';
-import 'package:jatisejahtera/pages/login_screen.dart';
-import 'package:jatisejahtera/pages/signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -47,10 +43,7 @@ class WelcomeScreen extends StatelessWidget {
                           backgroundColor: Colors.white,
                           colorText: primaryColor,
                           onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return const MainScreen();
-                            }));
+                            Navigator.pushNamed(context, '/mainpage');
                           },
                         ),
                         const SizedBox(height: 12),
@@ -59,64 +52,62 @@ class WelcomeScreen extends StatelessWidget {
                           backgroundColor: primaryColor,
                           colorText: Colors.white,
                           onTap: () {
-                            showModalBottomSheet(
-                              context: context,
-                              builder: (context) {
-                                return Wrap(
-                                  children: [
-                                    const Stack(children: [
-                                      Column(
-                                        children: [
-                                          SizedBox(
-                                            width: double.infinity,
-                                            height: 35.0,
-                                            child: Column(
-                                              children: [
-                                                SizedBox(height: 15),
-                                                Text("Masukkan NIP")
-                                              ],
-                                            ),
-                                          ),
-                                          Divider(
-                                            color: Colors.black,
-                                            height: 25,
-                                            thickness: 1,
-                                            indent: 5,
-                                            endIndent: 5,
-                                          ),
-                                        ],
-                                      )
-                                    ]),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 16, right: 16, top: 16),
-                                      child: InputTextField(
-                                        labelText: "NIP",
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 32,
-                                          bottom: 32,
-                                          left: 16,
-                                          right: 16),
-                                      child: StaticButton(
-                                        backgroundColor: primaryColor,
-                                        text: 'Cek',
-                                        colorText: Colors.white,
-                                        onTap: () {
-                                          Navigator.push(context,
-                                              MaterialPageRoute(
-                                                  builder: (context) {
-                                            return const SignupScreen();
-                                          }));
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                            Navigator.pushNamed(context, '/signuppage');
+                            // showModalBottomSheet(
+                            //   context: context,
+                            //   builder: (context) {
+                            //     return Wrap(
+                            //       children: [
+                            //         const Stack(children: [
+                            //           Column(
+                            //             children: [
+                            //               SizedBox(
+                            //                 width: double.infinity,
+                            //                 height: 35.0,
+                            //                 child: Column(
+                            //                   children: [
+                            //                     SizedBox(height: 15),
+                            //                     Text("Masukkan NIP")
+                            //                   ],
+                            //                 ),
+                            //               ),
+                            //               Divider(
+                            //                 color: Colors.black,
+                            //                 height: 25,
+                            //                 thickness: 1,
+                            //                 indent: 5,
+                            //                 endIndent: 5,
+                            //               ),
+                            //             ],
+                            //           )
+                            //         ]),
+                            //         const Padding(
+                            //           padding: EdgeInsets.only(
+                            //               left: 16, right: 16, top: 16),
+                            //           child: InputTextField(
+                            //             labelText: "NIP",
+                            //           ),
+                            //         ),
+                            //         Padding(
+                            //           padding: const EdgeInsets.only(
+                            //               top: 32,
+                            //               bottom: 32,
+                            //               left: 16,
+                            //               right: 16),
+                            //           child: StaticButton(
+                            //             backgroundColor: primaryColor,
+                            //             text: 'Cek',
+                            //             colorText: Colors.white,
+                            //             onTap: () {
+                            //               Navigator.pushNamed(
+                            //                   context, '/signuppage');
+                            //             },
+                            //           ),
+                            //         ),
+                            //       ],
+                            //     );
+                            //   },
+                            // );
                           },
                         ),
                         const SizedBox(height: 12),
@@ -127,10 +118,7 @@ class WelcomeScreen extends StatelessWidget {
                                 style: TextStyle(fontSize: 12)),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return const LoginScreen();
-                                }));
+                                Navigator.pushNamed(context, '/signinpage');
                               },
                               child: const Text(
                                 'Masuk',

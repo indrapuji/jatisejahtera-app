@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int myCurrentIndex = 0;
-  List pages = [HomeScreen(), const RecordScreen(), const UserScreen()];
+  List pages = [const HomeScreen(), const RecordScreen(), const UserScreen()];
 
   void _onItemTap(int index) {
     setState(() {

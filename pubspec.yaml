@@ -41,6 +41,9 @@ dependencies:
   another_carousel_pro: ^1.0.0
   font_awesome_flutter: ^10.6.0
   flutter_native_splash: ^2.3.9
+  http: ^1.2.0
+  dio: ^5.4.0
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
